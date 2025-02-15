@@ -1,3 +1,28 @@
 * {
+  /* border: 1px solid black; */
+  padding: 0;
+  margin: 0;
+}
+
+#container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 5fr;
+  grid-template-rows: 1fr 6fr;
+  padding: 10px;
+}
+
+#booklist {
+  display: block;
+  grid-row: 2/-1;
+  grid-column: 1/-1;
+  margin-top: 20px;
+  border-collapse: collapse;
+  /* border: 2px solid black; */
+  letter-spacing: 1px;
+  justify-self: center;
+}
+
+td, th {
   border: 1px solid black;
+  padding: 2px;
 }
