@@ -4,24 +4,52 @@
 //                   ("A Game of Thrones", "George R.R. Martin", "694", createCheckbox, createDelete)
 // ];
 
-let partial_test_array = [["The Hobbit", "J.R.R. Tolkien", "310", "yes", "delete"],
-    ["The Lion, the Witch and the Wardrobe", "C.S. Lewis", "172", "no", "delete"],
-    ["Leviathan Wakes", "James S.A. Corey", "577", "yes", "don't delete"],
-    ["A Game of Thrones", "George R.R. Martin", "694", "no", "don't delete"]
+let partial_test_array = [["The Hobbit", "J.R.R. Tolkien", "310", "read", "delete"],
+    ["The Lion, the Witch and the Wardrobe", "C.S. Lewis", "172", "not_read", "delete"],
+    ["Leviathan Wakes", "James S.A. Corey", "577", "read", "don't delete"],
+    ["A Game of Thrones", "George R.R. Martin", "694", "not-read", "don't delete"],
+    ["sample", "sample", "3", "read", "sample"]
 ];
 
 
 let test_line = [["The Hobbit", "J.R.R. Tolkien", "310", "yes", "delete"]];
 
 let buttonContainer = document.querySelector("#add-book");
+let column_count = document.querySelector("thead").rows[0].cells.length;
+let table = document.querySelector("tbody");
+
+let check_box = document.createElement("input");
+check_box.type = "checkbox";
+check_box.id = "read_status";
+check_box.name = "read_status";
+check_box.value = "read";
+
 
 function insertBookRow (book_info_array) {
-    let column_count = document.querySelector("thead").rows[0].cells.length;
-    let table = document.querySelector("tbody");
+    
     let row = table.insertRow(-1);
     for (let i=0; i < column_count; i++) {
         let cell = row.insertCell(i)
-        cell.textContent = book_info_array[i];
+
+        if (i === 3 ) {
+            if (book_info_array[i] === 'read') {
+                check_for_read = "checked = checked";
+            }
+            else {
+                check_for_read = '';
+            }
+
+            cell.innerHTML = `<input type = 'checkbox' id = 'read_status' name = 'read_status' value = 'read' ${check_for_read}></input>`;
+        }
+
+        else if (i === 4) {
+            let row_counter = document.querySelector('tbody').rows.length;
+            cell.innerHTML = `<button type=button id=row_${row_counter} class="delete_button"><img src="resources/delete.svg" alt="Delete button"></button>`
+        }
+
+        else {
+            cell.textContent = book_info_array[i];
+        }
     };
 };
 

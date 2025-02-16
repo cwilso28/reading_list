@@ -26,3 +26,12 @@ td, th {
   border: 1px solid black;
   padding: 2px;
 }
+
+img {
+  width: 20px;
+}
+
+.delete_button:active>img{
+  filter: invert(8%) sepia(90%) saturate(7474%) hue-rotate(4deg) brightness(82%) contrast(108%);
+  color: #b40000;
+}
