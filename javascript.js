@@ -38,6 +38,6 @@ function Book(title, author, page_count, read_status) {
 };
 
 function class_to_array(book) {
-    return [book.title, book.author, book.page_count, book.read_staus]
+    return [book.title, book.author, book.page_count, book.read_status]
 }
 
