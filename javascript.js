@@ -13,14 +13,15 @@ let partial_test_array = [["The Hobbit", "J.R.R. Tolkien", "310", "yes", "delete
 
 let test_line = [["The Hobbit", "J.R.R. Tolkien", "310", "yes", "delete"]];
 
-function insertBookRow (book_info) {
+let buttonContainer = document.querySelector("#add-book");
+
+function insertBookRow (book_info_array) {
     let column_count = document.querySelector("thead").rows[0].cells.length;
-    console.log(column_count);
     let table = document.querySelector("tbody");
     let row = table.insertRow(-1);
     for (let i=0; i < column_count; i++) {
         let cell = row.insertCell(i)
-        cell.textContent = book_info[i];
+        cell.textContent = book_info_array[i];
     };
 };
 
@@ -40,4 +41,9 @@ function Book(title, author, page_count, read_status) {
 function class_to_array(book) {
     return [book.title, book.author, book.page_count, book.read_status]
 }
+
+buttonContainer.addEventListener("click", function () {
+    alert("You made the button work!");
+}
+);
 
