@@ -25,3 +25,19 @@ function insertBookRow (book_info) {
 };
 
 // insertBookRow(test_line[0]);
+
+for (let i=0; i<partial_test_array.length; i++) {
+    insertBookRow(partial_test_array[i]);
+}
+
+function Book(title, author, page_count, read_status) {
+    this.title = title;
+    this.author = author;
+    this.page_count = page_count;
+    this.read_status = read_status;
+};
+
+function class_to_array(book) {
+    return [book.title, book.author, book.page_count, book.read_staus]
+}
+
