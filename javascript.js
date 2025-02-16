@@ -28,6 +28,9 @@ check_box.value = "read";
 function insertBookRow (book_info_array) {
     
     let row = table.insertRow(-1);
+    let row_counter = document.querySelector('tbody').rows.length;
+    row.id = `row_${row_counter}`;
+
     for (let i=0; i < column_count; i++) {
         let cell = row.insertCell(i)
 
@@ -43,8 +46,8 @@ function insertBookRow (book_info_array) {
         }
 
         else if (i === 4) {
-            let row_counter = document.querySelector('tbody').rows.length;
-            cell.innerHTML = `<button type=button id=row_${row_counter} class="delete_button"><img src="resources/delete.svg" alt="Delete button"></button>`
+
+            cell.innerHTML = `<button type=button id=row_${row_counter}_button class="delete_button"><img src="resources/delete.svg" alt="Delete button"></button>`
         }
 
         else {
@@ -70,8 +73,23 @@ function class_to_array(book) {
     return [book.title, book.author, book.page_count, book.read_status]
 }
 
+function delete_button_press(e) {
+    if (e.target && e.target.matches('.delete_button')) {
+        const selectedButton = e.target;
+
+        row_id = selectedButton.id;
+        row_id = row_id.split("_").slice(0,2).join("_")
+        const row_to_delete = document.getElementById(row_id)
+        row_to_delete.remove();
+    }
+}
+
 buttonContainer.addEventListener("click", function () {
     alert("You made the button work!");
 }
 );
 
+table.addEventListener("click", function(e) {
+    delete_button_press(e);
+}
+);
