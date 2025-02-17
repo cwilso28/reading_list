@@ -84,10 +84,14 @@ function delete_button_press(e) {
     }
 }
 
-buttonContainer.addEventListener("click", function () {
-    alert("You made the button work!");
+// buttonContainer.addEventListener("click", function () {
+//     alert("You made the button work!");
+// }
+// );
+
+function openForm() {
+    document.getElementById("popupOverlay").style.display="block";
 }
-);
 
 table.addEventListener("click", function(e) {
     delete_button_press(e);
