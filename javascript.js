@@ -95,6 +95,7 @@ formContainer.addEventListener("submit", function(e) {
     e.preventDefault();
     addBookToLibrary();
     closeForm();
+    formContainer.reset();
 }
 );
 
