@@ -69,6 +69,16 @@ function Book(title, author, page_count, read_status) {
     this.read_status = read_status;
 };
 
+function addBookToLibrary() {
+    let book_title = document.getElementById("book_title");
+    let book_author = document.getElementById("book_author");
+    let page_count = document.getElementById("page_count");
+    let read_status = document.getElementById("read_status");
+    let book = new Book(book_title, book_author, page_count, read_status);
+    book_array = class_to_array(book);
+    insertBookRow(book_array);
+};
+
 function class_to_array(book) {
     return [book.title, book.author, book.page_count, book.read_status]
 }
