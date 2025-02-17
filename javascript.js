@@ -92,6 +92,9 @@ function delete_button_press(e) {
 function openForm() {
     document.getElementById("popupOverlay").style.display="block";
 }
+function closeForm() {
+    document.getElementById("popupOverlay").style.display="none";
+}
 
 table.addEventListener("click", function(e) {
     delete_button_press(e);
