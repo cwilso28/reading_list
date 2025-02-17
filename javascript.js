@@ -1,8 +1,7 @@
 let partial_test_array = [["The Hobbit", "J.R.R. Tolkien", "310", "read", "delete"],
     ["The Lion, the Witch and the Wardrobe", "C.S. Lewis", "172", "not_read", "delete"],
     ["Leviathan Wakes", "James S.A. Corey", "577", "read", "don't delete"],
-    ["A Game of Thrones", "George R.R. Martin", "694", "not-read", "don't delete"],
-    ["sample", "sample", "3", "read", "sample"]
+    ["A Game of Thrones", "George R.R. Martin", "694", "not-read", "don't delete"]
 ];
 
 
@@ -12,12 +11,6 @@ let buttonContainer = document.querySelector(".submitButton");
 let column_count = document.querySelector("thead").rows[0].cells.length;
 let table = document.querySelector("tbody");
 let formContainer = document.querySelector(".form-container")
-
-// let check_box = document.createElement("input");
-// check_box.type = "checkbox";
-// check_box.id = "read_status";
-// check_box.name = "read_status";
-// check_box.value = "read";
 
 
 function insertBookRow (book_info_array) {
@@ -52,7 +45,6 @@ function insertBookRow (book_info_array) {
     };
 };
 
-// insertBookRow(test_line[0]);
 
 for (let i=0; i<partial_test_array.length; i++) {
     insertBookRow(partial_test_array[i]);
@@ -105,12 +97,6 @@ function openForm() {
 function closeForm() {
     document.getElementById("popupOverlay").style.display="none";
 }
-
-// let delete_buttons = document.querySelectorAll("delete_button");
-
-// delete_buttons.forEach(addEventListener('click', function(e) {
-//     delete_button_press(e);
-// }));
 
 table.addEventListener("click", function(e) {
     delete_button_press(e);
