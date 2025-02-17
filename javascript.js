@@ -1,9 +1,3 @@
-// let full_test_array = [("The Hobbit", "J.R.R. Tolkien", "310", createCheckbox, createDelete),
-//                   ("The Lion, the Witch and the Wardrobe", "C.S. Lewis", "172", createCheckbox, createDelete),
-//                   ("Leviathan Wakes", "James S.A. Corey", "577", createCheckbox, createDelete)
-//                   ("A Game of Thrones", "George R.R. Martin", "694", createCheckbox, createDelete)
-// ];
-
 let partial_test_array = [["The Hobbit", "J.R.R. Tolkien", "310", "read", "delete"],
     ["The Lion, the Witch and the Wardrobe", "C.S. Lewis", "172", "not_read", "delete"],
     ["Leviathan Wakes", "James S.A. Corey", "577", "read", "don't delete"],
@@ -18,11 +12,11 @@ let buttonContainer = document.querySelector("#add-book");
 let column_count = document.querySelector("thead").rows[0].cells.length;
 let table = document.querySelector("tbody");
 
-let check_box = document.createElement("input");
-check_box.type = "checkbox";
-check_box.id = "read_status";
-check_box.name = "read_status";
-check_box.value = "read";
+// let check_box = document.createElement("input");
+// check_box.type = "checkbox";
+// check_box.id = "read_status";
+// check_box.name = "read_status";
+// check_box.value = "read";
 
 
 function insertBookRow (book_info_array) {
@@ -42,12 +36,13 @@ function insertBookRow (book_info_array) {
                 check_for_read = '';
             }
 
-            cell.innerHTML = `<input type = 'checkbox' id = 'read_status' name = 'read_status' value = 'read' ${check_for_read}></input>`;
+            cell.innerHTML = `<input type = 'checkbox' id = 'table_read_status' name = 'table_read_status' value = 'read' ${check_for_read}></input>`;
         }
 
         else if (i === 4) {
 
-            cell.innerHTML = `<button type=button id=row_${row_counter}_button class="delete_button"><img src="resources/delete.svg" alt="Delete button"></button>`
+            // cell.innerHTML = `<button type=button id=row_${row_counter}_button class="delete_button"><img src="resources/delete.svg" alt="Delete button"></button>`
+            cell.innerHTML = `<button type=button id=row_${row_counter}_button class="delete_button"></button>`
         }
 
         else {
@@ -70,11 +65,12 @@ function Book(title, author, page_count, read_status) {
 };
 
 function addBookToLibrary() {
-    let book_title = document.getElementById("book_title");
-    let book_author = document.getElementById("book_author");
-    let page_count = document.getElementById("page_count");
-    let read_status = document.getElementById("read_status");
-    let book = new Book(book_title, book_author, page_count, read_status);
+    let book_title = document.getElementById("book_title").value;
+    let book_author = document.getElementById("book_author").value;
+    let page_count = document.getElementById("page_count").value;
+    let form_read_status = document.getElementById("form_read_status").value;
+    console.log(form_read_status);
+    let book = new Book(book_title, book_author, page_count, form_read_status);
     book_array = class_to_array(book);
     insertBookRow(book_array);
 };
@@ -105,6 +101,12 @@ function openForm() {
 function closeForm() {
     document.getElementById("popupOverlay").style.display="none";
 }
+
+// let delete_buttons = document.querySelectorAll("delete_button");
+
+// delete_buttons.forEach(addEventListener('click', function(e) {
+//     delete_button_press(e);
+// }));
 
 table.addEventListener("click", function(e) {
     delete_button_press(e);

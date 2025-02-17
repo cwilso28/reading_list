@@ -26,14 +26,19 @@ td, th {
   border: 1px solid black;
   padding: 2px;
 }
-
-img {
+.delete_button {
   width: 20px;
+  height: 20px;
+  background-image: url("resources/delete.svg");
+  border: none;
+  border-radius: 2px;
+  background-color: rgb(211, 211, 211);
 }
 
-.delete_button:active>img{
-  filter: invert(8%) sepia(90%) saturate(7474%) hue-rotate(4deg) brightness(82%) contrast(108%);
-  color: #b40000;
+.delete_button:active{
+  /* filter: invert(8%) sepia(90%) saturate(7474%) hue-rotate(4deg) brightness(82%) contrast(108%);
+  color: #b40000; */
+  background-color: red;
 }
 
 /* Form styling */
