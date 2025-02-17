@@ -43,7 +43,7 @@ td, th {
 
 /* Form styling */
 .popup-container {
-  /* display:none; */
+  display:none;
   /* display:block; */
   border: 3px solid black;
   background-color: #fff;
@@ -61,4 +61,8 @@ td, th {
 input[type="text"],
 input[type="number"] {
   width: 100%;
+}
+
+.formbutton-container {
+  justify-self: center;
 }

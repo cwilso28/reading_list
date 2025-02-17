@@ -8,9 +8,10 @@ let partial_test_array = [["The Hobbit", "J.R.R. Tolkien", "310", "read", "delet
 
 let test_line = [["The Hobbit", "J.R.R. Tolkien", "310", "yes", "delete"]];
 
-let buttonContainer = document.querySelector("#add-book");
+let buttonContainer = document.querySelector(".submitButton");
 let column_count = document.querySelector("thead").rows[0].cells.length;
 let table = document.querySelector("tbody");
+let formContainer = document.querySelector(".form-container")
 
 // let check_box = document.createElement("input");
 // check_box.type = "checkbox";
@@ -68,7 +69,7 @@ function addBookToLibrary() {
     let book_title = document.getElementById("book_title").value;
     let book_author = document.getElementById("book_author").value;
     let page_count = document.getElementById("page_count").value;
-    let form_read_status = document.getElementById("form_read_status").value;
+    let form_read_status = document.getElementById("form_read_status").checked ? "read": "unread";
     console.log(form_read_status);
     let book = new Book(book_title, book_author, page_count, form_read_status);
     book_array = class_to_array(book);
@@ -90,10 +91,12 @@ function delete_button_press(e) {
     }
 }
 
-// buttonContainer.addEventListener("click", function () {
-//     alert("You made the button work!");
-// }
-// );
+formContainer.addEventListener("submit", function(e) {
+    e.preventDefault();
+    addBookToLibrary();
+    closeForm();
+}
+);
 
 function openForm() {
     document.getElementById("popupOverlay").style.display="block";
