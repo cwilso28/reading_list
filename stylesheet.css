@@ -1,25 +1,39 @@
 * {
   /* border: 1px solid black; */
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
+html, body {
+  height:100%;
+  width: 100%;
+  display:flex;
+}
+/* body {
+  min-height:100vh;
+} */
+
 #container {
   display: grid;
   grid-template-columns: 1fr 1fr 5fr;
-  grid-template-rows: 1fr 6fr;
+  grid-template-rows: 50px auto;
   padding: 10px;
   position:relative;
+  height: 100%;
+  width: 100%;
 }
 
 #booklist {
   display: block;
-  grid-row: 2/-1;
+  /* grid-row: 2/-1; */
   grid-column: 1/-1;
   margin-top: 20px;
+  /* margin-bottom: 20px; */
   border-collapse: collapse;
   letter-spacing: 1px;
   justify-self: center;
+  height: 99%;
 }
 
 td, th {
