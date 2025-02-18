@@ -94,10 +94,12 @@ formContainer.addEventListener("submit", function(e) {
 function openForm() {
     document.getElementById("popupOverlay").style.display="block";
     document.getElementById("book_title").focus();
-    document.getElementById("container").style.backgroundColor="#808080";
+    document.getElementById("overlay").style.display="block";
 }
+
 function closeForm() {
-    document.getElementById("popupOverlay").style.display="none"
+    document.getElementById("popupOverlay").style.display="none";
+    document.getElementById("overlay").style.display="none";
     formContainer.reset();
 }
 
