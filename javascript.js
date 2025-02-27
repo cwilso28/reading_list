@@ -50,12 +50,22 @@ for (let i=0; i<partial_test_array.length; i++) {
     insertBookRow(partial_test_array[i]);
 }
 
-function Book(title, author, page_count, read_status) {
-    this.title = title;
-    this.author = author;
-    this.page_count = page_count;
-    this.read_status = read_status;
-};
+// function Book(title, author, page_count, read_status) {
+//     this.title = title;
+//     this.author = author;
+//     this.page_count = page_count;
+//     this.read_status = read_status;
+// };
+
+class Book {
+    constructor(title, author, page_count, read_status) {
+        this.title = title;
+        this.author = author;
+        this.page_count = page_count;
+        this.read_status = read_status;
+    }
+
+}
 
 function addBookToLibrary() {
     let book_title = document.getElementById("book_title").value;
